@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Cadastrar Anunciante</h1>
+            <div class="voltar">
+                <span><a href="../../components/login/login.html">Voltar</a></span>
+            </div>
+            <form action="cadastro.php" method="POST">
+                <fieldset>
+                    <legend>
+                        <h2>Dados Pessoais</h2>
+                    </legend>
+                    <div class="field">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" name="nome" id="nome" autofocus>
+                    </div>
+                    <div class="field">
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="cpf" id="cpf">
+                    </div>
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+                    <div class="field">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha">
+                    </div>
+                    <div class="field">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" name="telefone" id="telefone">
+                    </div>
+                </fieldset>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </main>
+    
+</body>
+</html>
