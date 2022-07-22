@@ -1,0 +1,12 @@
+#imgProdutoAnuncio {
+    justify-content: center;
+}
+
+
+#idModalComentario {
+    top: 25%;
+}
+
+#btnAdicionarComentario:hover {
+    cursor: pointer;
+}
