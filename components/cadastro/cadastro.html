@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Cadastro</title>
 </head>
 <body>
@@ -12,9 +13,9 @@
         <div class="container">
             <h1>Cadastrar Anunciante</h1>
             <div class="voltar">
-                <span><a href="../../components/login/login.html">Voltar</a></span>
+                <span><a href="../login/login.html">Voltar</a></span>
             </div>
-            <form action="cadastro.php" method="POST">
+            <form name="formCadastro" id="formCadastro" action="cadastro.php" method="POST">
                 <fieldset>
                     <legend>
                         <h2>Dados Pessoais</h2>
@@ -22,28 +23,34 @@
                     <div class="field">
                         <label for="nome">Nome Completo</label>
                         <input type="text" name="nome" id="nome" autofocus>
+                        <span></span>
                     </div>
                     <div class="field">
                         <label for="cpf">CPF</label>
                         <input type="text" name="cpf" id="cpf">
+                        <span></span>
                     </div>
                     <div class="field">
                         <label for="email">E-mail</label>
                         <input type="text" name="email" id="email">
+                        <span></span>
                     </div>
                     <div class="field">
                         <label for="senha">Senha</label>
                         <input type="password" name="senha" id="senha">
+                        <span></span>
                     </div>
                     <div class="field">
                         <label for="telefone">Telefone</label>
                         <input type="tel" name="telefone" id="telefone">
                     </div>
                 </fieldset>
-                <button type="submit">Cadastrar</button>
+                <button type="button" id="btnCadastro">Cadastrar</button>
+                <div>
+                    <p id="failMsg"></p>
+                </div>
             </form>
         </div>
     </main>
-    
 </body>
 </html>

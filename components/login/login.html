@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>e-commecer Login</title>
 </head>
 <body>
@@ -13,10 +14,13 @@
             <div>
                 <img src="../../assets/loginusuario.svg" alt="">
             </div>
-            <form action="login.php" method="POST">
+            <form id="formLogin" method="POST">
                 <input type="email" name="email" placeholder="Digite o e-mail" autofocus>
                 <input type="password" name="senha" placeholder="Digite a senha">
-                <button type="submit">Entrar</button>
+                <button id="btnLogin" type="button">Entrar</button>
+                <div>
+                    <p id="loginFailMsg">E-mail e/ou senha incorreta. Por favor, tente novamente.</p>
+                </div>
             </form>
             <p>Ainda não tem uma conta? <a href="../cadastro/cadastro.html">Cadastrar</a></p>
         </div>

@@ -1,43 +1,38 @@
 <?php
-    function checkLogin($pdo, $email, $senha){
-        $sql = <<<SQL
-            SELECT has_senha
-            FROM cliente
-            WHERE email = ?
-            SQL;
+    
+    require_once "../../services/conexaoMysql.php";
+    require_once "autenticacao.php";
+    session_start();
         
-        try{
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$email]);
-            $row = $stmt->fetch();
-            if(!$row){
-                return false;
-            }
-            else {
-                return password_verify($senha, $row['hash_senha']);
-            }
+
+    class RequestResponse{
+        public $success;
+        public $detail;
+
+        function __construct($success, $detail){
+            $this->success = $success;
+            $this->detail = $detail;
         }
-        catch(Exception $e){
-            exit('Falha inesperada: ' .$e->getMessage());
-        }
-
-        $errorMsg = "";
-
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            require "../../services/conexaoMysql.php";
-            $pdo = mysqlConnect();
-
-            $email = $_POST["email"] ?? "";
-            $senha = $_POST["senha"] ?? "";
-
-            if(checkLogin($pdo, $email, $senha)){
-                header("location:");
-                exit();
-            }
-            else{
-                $errorMsg = "E-mail ou senha inválido!";
-            }
-        }
-        
     }
+
+    $email = $_POST["email"] ?? '';
+    $senha = $_POST["senha"] ?? '';
+
+    $pdo = mysqlConnect();
+
+    if($senhaHash = checkPassword($pdo, $email, $senha)){
+
+        $_SESSION['emailUsuario'] = $email;
+        $_SESSION['loginString'] = hash('sha512', $senhaHash . $_SERVER['HTTP_USER_AGENT']); 
+        $response = new RequestResponse(true, '../home/index.php');
+    }
+
+    else{
+        $response = new RequestResponse(false, '');
+    }
+
+    echo json_encode($response);
+    
 ?>
+
+

@@ -6,13 +6,13 @@ body{
 }
 
 h1{
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 20px;
 }
 
 form{
     background-color: white;
-    margin: 50px auto;
+    margin: auto;
     padding: 20px;
     border-radius: 8px;
     max-width: 730px;
@@ -30,11 +30,11 @@ form legend h2{
 .field{
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
 }
 
 input{
     background-color: #f0f0f5;
+    margin-bottom: 10px;
     border: none;
     padding: 10px;
     font-size: 16px;
@@ -58,4 +58,17 @@ button:hover{
 
 .voltar{
     margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+span{
+    color:red;
+    border: none;
+    margin-bottom: 10px;
+}
+
+#failMsg {
+    display: none;
+    color: red;
+    text-align: center;
 }
