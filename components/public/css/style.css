@@ -1,0 +1,261 @@
+.editHeader{
+
+    text-align: center;
+    background-color: rgb(103, 103, 176);
+    color: white;
+    display: block;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3px;
+    padding: 3px;
+    position: relative;
+
+}
+
+.alinharEsq{
+
+    margin: 10px;
+    float: left;
+    width: 60px;
+    height: 60px;
+
+}
+
+.alinharDir{
+
+    margin: 10px;
+    float: right;
+    width: 60px;
+    height: 60px;
+
+}
+
+
+aside{
+
+    position: absolute;
+    top: 18%;
+
+}
+
+aside button{
+
+    border-radius: 5px;
+    background-color: rgb(103, 103, 176);
+    color: white;
+    border: 1px solid rgb(169, 161, 161);
+    position: relative;
+    width: 170px;
+    height: 30px;
+
+}
+
+main{
+
+    position:absolute;
+    top: 13%;
+    left: 15%;
+    display:block;
+    width:85%;
+    height: 85%;
+
+}
+
+nav{
+
+    margin: 5px;
+    position: relative;
+
+}
+
+nav>button{
+
+    border-radius: 5px;
+    background-color: rgb(103, 103, 176);
+    color: white;
+    border: 1px solid rgb(169, 161, 161);
+    position: relative;
+    width: 110px;
+    height: 30px;
+    float: right;
+    margin: 5px;
+
+}
+
+div>button{
+
+    border-radius: 5px;
+    background-color: rgb(103, 103, 176);
+    color: white;
+    border: 1px solid rgb(169, 161, 161);
+    position: absolute;
+    width: 110px;
+    height: 30px;
+    margin: 5px;
+
+}
+
+.btnAnuncio{
+
+    border-radius: 5px;
+    background-color: rgb(103, 103, 176);
+    color: white;
+    border: 1px solid rgb(169, 161, 161);
+    position: absolute;
+    width: 110px;
+    height: 30px;
+    margin: 5px;
+    top: 0.5%;
+
+}
+
+main input {
+
+    border: 2px solid rgb(121, 121, 175);
+    border-radius: 4px;
+    width: 400px;
+    height: 22px;
+    margin-top: 1%;
+    position: relative;
+
+}
+
+.editSection {
+
+    background-color:rgb(213, 202, 202);
+    top:7%;
+    left:7%;
+    width:70%;
+    height:95%;
+    position: absolute;
+
+}
+
+.editInput {
+
+    border: 2px solid rgb(121, 121, 175);
+    border-radius: 4px;
+    width: 150px;
+    height: 22px;
+    margin-top: 1%;
+    position: relative;
+
+}
+
+@media screen and (max-width:1100px){
+
+    main input{
+
+        width:250px;
+
+    }
+    
+}
+
+@media screen and (max-width:956px){
+
+    main input{
+
+        width:150px;
+
+    }
+    
+}
+
+@media screen and (max-width:855px){
+
+    main input{
+
+        width:100px;
+
+    }
+    
+}
+
+button:hover {
+    cursor: pointer;
+    background-color:rgb(121, 121, 175);
+
+}
+
+button:active{
+
+    color:rgb(78, 78, 153);
+    border: 1px solid rgb(78, 78, 153);
+
+}
+
+.editDiv{
+    
+    position: absolute;
+    top: 5px;
+    left:40%;
+    transform: translateX(-50%);
+
+}
+
+input:hover{
+
+    border: 2px solid rgb(153, 153, 208);
+
+}
+
+input:focus{
+
+    border:2px solid rgb(78, 78, 153);
+
+}
+
+h4{
+
+    color: rgb(103, 103, 176);
+}
+
+.propVisibility{
+
+    visibility: hidden;
+
+}
+
+h2 {
+    font-size: 15px;
+    color: #888;
+  }
+
+
+template div{
+
+    display: inline-block;
+
+}
+
+  .item {
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 50%;
+    height: 141px;
+
+  }
+
+  .item-image {
+    width: 50px;
+    height: 50px;
+    margin: 0 2rem;
+  }
+
+  .item-name {
+    font: 25px Verdana;
+    color: #888;
+  }
+
+  .item-price {
+    font: 25px Verdana;
+    color: darkgreen;
+    margin-left: 2rem;
+  }
+
+  .item-price::before {
+    content: 'R$ ';
+  }

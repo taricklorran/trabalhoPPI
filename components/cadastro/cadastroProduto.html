@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Cadastro Anúncio</title>
+</head>
+<body class="bodyAnuncio">
+    <main>
+        <div class="container">
+            <h1>Cadastrar Anúncio</h1>
+            <div class="voltar">
+                <span><a href="../login/login.html">Voltar</a></span>
+            </div>
+            <form name="formCadastro" id="formCadastro" action="cadastro-anuncio.php" method="POST">
+                <fieldset>
+                    <legend>
+                        <h2>Dados do produto</h2>
+                    </legend>
+                    <div class="field">
+                        <label for="nome">Anexar imagem</label>
+                        <input type="file" name="imagensProduto" id="imagensProduto" accept="image/png, image/gif, image/jpeg">
+                        <span></span>
+                    </div>                
+                    <div class="field">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" name="descricao" id="descricao">
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <label for="titulo">Título</label>
+                        <input type="text" name="titulo" id="titulo">
+                        <span></span>
+                    </div>    
+                    <div class="field">
+                        <label for="categoria">Categoria</label>
+                        <select name="categoria" id="categoria">
+                            <option value="veiculo">Veículo</option>
+                            <option value="eletroeletronico">Eletroeletrônico</option>
+                            <option value="imovel">Imóvel</option>
+                            <option value="movel">Móvel</option>
+                            <option value="vestuario">Vestuário</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <label for="cep" onkeyup="buscaEndereco()">CEP</label>
+                        <input type="number" name="cep" id="cep">
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" name="bairro" id="bairro">
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="senha" id="senha">
+                        <span></span>
+                    </div>
+                    <div class="field">
+                        <label for="estado">Estado</label>
+                        <input type="text" name="estado" id="estado">
+                    </div>
+                </fieldset>
+                <button type="button" id="btnCadastroProduto">Cadastrar</button>
+                <div>
+                    <p id="failMsg"></p>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

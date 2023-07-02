@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/96de98142c.js" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Anúncios</title>
+    </head>
+    <body>
+
+        <header class="editHeader">
+
+            <img src="images/carrinho compra.png" class="alinharEsq">
+            <img src="images/carrinho compra.png" class="alinharDir">
+            <h1>MRT Vendas</h1>
+
+        </header>
+
+        <aside>
+
+            <button>Pesquisa avançada</button><br><br>
+            <div class="propVisibility">
+                <form name="pesquisaAvancada" method="GET" action="trataPesquisa.php">
+                    <h4>Selecione onde deseja pesquisar:</h4>
+                    <div>
+
+                        <input type="radio" id="titulo" name="pesAvancada" value="titulo" checked>
+                        <label for="titulo">Pesquisar no título</label><br><br>
+                    </div>
+                    <div>
+                        <input type="radio" id="descricao" name="pesAvancada" value="descricao">
+                        <label for="descricao">Pesquisar na descrição</label>
+                    </div>
+                    <br><br>
+
+                    <h4>Informe a faixa de preço que deseja:</h4>
+                    <div>
+
+                        <label for="precoMin">Min </label>
+                        <input type="text" id="precoMin" name="precoMinimo" class="editInput"><br><br>
+                        <label for="precoMax">Max</label>
+                        <input type="text" id="precoMax" name="precoMaximo" class="editInput">
+
+                    </div><br><br>
+
+                    <h4>Selecione a categoria desejada:</h4>
+
+                    <div>
+                        <input type="checkbox" id="categoria1" name="categorias[]" value="titulo">
+                        <label for="categoria1">Categoria1</label>
+                    </div><br>
+                    <div>
+                        <input type="checkbox" id="categoria2" name="categorias[]" value="descricao">
+                        <label for="categoria2">Categoria2</label>
+                    </div><br>
+                    <div>
+                        <input type="checkbox" id="categoria3" name="categorias[]" value="titulo">
+                        <label for="categoria3">Categoria3</label>
+                    </div><br>
+                    <div>
+                        <input type="checkbox" id="categoria4" name="categorias[]" value="descricao">
+                        <label for="categoria4">Categoria4</label>
+                    </div><br>
+                </form> 
+            </div>
+
+        </aside>
+
+        <main>
+            <nav>
+                <button type="button" onclick="parent.location='../login/login.html'">Login</button>
+                <button type="button" onclick="parent.location='../cadastro/cadastro.html'">Cadastrar</button>
+            </nav>
+            <form name="pesquisa" method="GET" action="trataPesquisa.php">
+                <div class="editDiv">
+                    <input type="text" name="pesquisa">           
+                    <button>Pesquisar</button>
+                </div>
+            </form>
+            <div class="editSection">
+              <section id="products">
+            
+                <template id="template">
+                  <div class="item">
+                    <img class="item-image" src="images/{{prod-image}}"></img>
+                    <span class="item-name">{{prod-name}}</span>
+                    <span class="item-price">{{prod-price}}</span>
+                  </div>
+                </template>
+            
+              </section>
+            </div>
+            
+            <script>
+
+                function renderProducts(newProducts) {
+
+                    const prodsSection = document.getElementById("products");
+                    const template = document.getElementById("template");
+
+                    for (let product of newProducts) {
+                        let html = template.innerHTML
+                        .replace("{{prod-image}}", product.imagePath)
+                        .replace("{{prod-name}}", product.name)
+                        .replace("{{prod-price}}", product.price);
+
+                        prodsSection.insertAdjacentHTML("beforeend", html);
+                    };
+                }
+
+                async function loadProducts() {
+
+                    try {
+                        let response = await fetch("buscaProdPublic.php");
+                        if (!response.ok) throw new Error(response.statusText);
+                        var products = await response.json();
+                        console.log(products);
+                    }
+                    catch (e) {
+                        console.error(e);
+                        return;
+                    }
+
+                    renderProducts(products);
+                }
+
+                window.onload = function () {
+                    loadProducts();
+                }
+
+                window.onscroll = function () {
+                    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                        loadProducts();
+                        }
+                };
+
+            </script>
+        </main> 
+        
+    </body>
+</html>

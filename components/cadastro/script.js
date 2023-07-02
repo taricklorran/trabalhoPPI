@@ -35,6 +35,61 @@ function sendForm(){
 }
 
 window.onload = function () {
+    preencherDropDownCategoria();
     const btnCadastro = document.querySelector("#btnCadastro");
     btnCadastro.onclick = sendForm;
+  }
+
+
+  function buscaEndereco() {
+    let cep = document.querySelector("#cep").value;
+
+    if (cep.length != 9) return;      
+    let form = document.querySelector("form");
+    
+    fetch("busca-endereco.php?cep=" + cep)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+
+        return response.json();
+      })
+      .then(endereco => {
+        form.rua.value = endereco.rua;
+        form.bairro.value = endereco.bairro;
+        form.cidade.value = endereco.cidade;
+      })
+      .catch(error => {
+
+        form.reset();
+        console.error('Falha inesperada: ' + error);
+      });
+  }
+
+  function preencherDropDownCategoria(){
+    // povoa dropdown de categorias    
+      fetch("busca-categoria.php")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.status);
+          }
+
+          return response.json();
+        })
+        .then(categorias => {          
+          categorias.forEach((x) => {
+            let option = document.createElement("option");
+            option.text = x.nome;
+            option.value = x.id;
+
+            var select = document.getElementById("categoria");
+            select.appendChild(option);
+          });
+        })
+        .catch(error => {
+  
+          form.reset();
+          console.error('Falha inesperada: ' + error);
+        });
   }

@@ -1,9 +1,11 @@
 <?php
     require "../../services/conexaoMysql.php";
     require "../login/autenticacao.php";
-    session_start();
+    session_start(); //Informa que quer usar a variáveis de sessão
+
     $pdo = mysqlConnect();
 
+    //compara se existe
     if(!exitWhenNotLogged($pdo)){
         exit();
     }
